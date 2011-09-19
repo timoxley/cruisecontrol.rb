@@ -1,6 +1,6 @@
-@cruise-light-blue: rgb(74, 144, 219);
-@cruise-blue: rgb(74, 144, 219);
-@cruise-dark-blue: rgb(33, 90, 156);
+@cruise-light-blue: rgb(92, 123, 136); 
+@cruise-blue: rgb(61, 83, 97);
+@cruise-dark-blue: darker(rgb(61, 83, 97), 20);
 @cruise-orange: #f5b778;
 
 @background-color: rgb(50, 55, 58);
@@ -24,11 +24,11 @@
 }
 
 .bg_style {
-  background-image: url("/images/diagonal_noise.png"), -webkit-radial-gradient(top center, #505659, #505659 750px);
-  background-image: url("/images/diagonal_noise.png"), -moz-radial-gradient(top center, #505659, #505659 750px);
-  background-image: url("/images/diagonal_noise.png"), -o-radial-gradient(top center, #505659, #505659 750px);
-  background-image: url("/images/diagonal_noise.png"), radial-gradient(top center, #505659, #505659 750px);
-  min-height: 750px;
+  background-image: url("/images/dark_texture.png"), -webkit-radial-gradient(center center, #6f99a8, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), -moz-radial-gradient(center center, #6f99a8, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), -o-radial-gradient(center center, #6f99a8, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), radial-gradient(center center, #6f99a8, #456475 1000px);
+  min-height: 100%;
 }
 
 .rounded_corners (@radius: 8px) { 
@@ -220,9 +220,9 @@ body .build_failed #projects .project .name {
     float: left;
     height: 160px;
     
-    -moz-box-shadow: 3px 3px 20px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 3px 3px 20px rgba(0,0,0,0.2);
-    box-shadow: 3px 3px 20px rgba(0,0,0,0.2);
+    -moz-box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
     .rounded_corners;
 
     &.build_success       { .build_color(@success-color);     }
