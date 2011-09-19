@@ -4,8 +4,10 @@
 <head>
   <title>CruiseControl.rb<%= @title ? " - " + @title : '' %></title>
   <%= tag :link, :rel => "stylesheet/less", :type => "text/css", :href => path_to_stylesheet('cruisecontrol.less') %>
+  <%= stylesheet_link_tag 'extra.css' %>
   <%= stylesheet_link_tag 'site', :media => 'all' if Rails.root.join("public", "stylesheets", "site.css").exist? %>
-  
+  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700' %>
+  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oswald' %>
 
   <% if @autorefresh %>
     <meta http-equiv="refresh" content="<%= Configuration.dashboard_refresh_interval.to_i %>">
