@@ -8,26 +8,24 @@
     </div>
 
     <div class="lower">
-      <div class="rss">
-        <%= link_to image_tag('rss_light.gif'), :action => 'show', :id => project.name, :format => 'rss' %>
-      </div>
+      <div class="wrap">
+        <% status = project.sleeping? ? project.last_complete_build_status : project.builder_state_and_activity %>
 
-      <% status = project.sleeping? ? project.last_complete_build_status : project.builder_state_and_activity %>
+        <div class="status <%= project.last_complete_build_status %>">
+          <%= project.last_complete_build_status.humanize %>
+        </div>
 
-      <div class="project_status <%= status %>">
-        <%= status.titleize %>
-      </div>
+        <div class="project_status <%= status %>">
+          <%= status.titleize %>
+        </div>
 
-      <div class="status <%= project.last_complete_build_status %>">
-        <%= project.last_complete_build_status.humanize %>
-      </div>
-
-      <div class="builder_status">
-        <% if project.building? %>
-          <%= link_to_build(project, project.last_build) %>
-        <% elsif project.previously_built? %>
-          <%= link_to_build_with_elapsed_time(project, project.last_complete_build) %>
-        <% end %>
+        <div class="builder_status">
+          <% if project.building? %>
+            <%= link_to_build(project, project.last_build) %>
+          <% elsif project.previously_built? %>
+            <%= link_to_build_with_elapsed_time(project, project.last_complete_build) %>
+          <% end %>
+        </div>
       </div>
     </div>
 

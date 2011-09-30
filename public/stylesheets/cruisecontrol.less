@@ -24,10 +24,10 @@
 }
 
 .bg_style {
-  background-image: url("/images/dark_texture.png"), -webkit-radial-gradient(center center, #6f99a8, #456475 1000px);
-  background-image: url("/images/dark_texture.png"), -moz-radial-gradient(center center, #6f99a8, #456475 1000px);
-  background-image: url("/images/dark_texture.png"), -o-radial-gradient(center center, #6f99a8, #456475 1000px);
-  background-image: url("/images/dark_texture.png"), radial-gradient(center center, #6f99a8, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), -webkit-radial-gradient(center center, #589fcd, #3f718d 1000px);
+  background-image: url("/images/dark_texture.png"), -moz-radial-gradient(center center, #5bb4eb, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), -o-radial-gradient(center center, #5bb4eb, #456475 1000px);
+  background-image: url("/images/dark_texture.png"), radial-gradient(center center, #5bb4eb, #456475 1000px);
   min-height: 100%;
 }
 
@@ -202,10 +202,11 @@ body .build_failed #projects .project .name {
   }
 
   .project {
+    
     .wrap {
       position: relative;
       z-index: 2;
-      width: 100%;
+      padding: 0px 10px;
       height: 100%;
       background-image: url("/images/diagonal_noise.png"), -webkit-radial-gradient(top center, #303436, #303436 750px);
       background-image: url("/images/diagonal_noise.png"), -moz-radial-gradient(top center, #303436, #303436 750px);
@@ -220,9 +221,9 @@ body .build_failed #projects .project .name {
     float: left;
     height: 160px;
     
-    -moz-box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
-    box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
+    -moz-box-shadow: 6px 6px 40px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 6px 6px 40px rgba(0,0,0,0.4);
+    box-shadow: 6px 6px 40px rgba(0,0,0,0.4);
     .rounded_corners;
 
     &.build_success       { .build_color(@success-color);     }
@@ -238,13 +239,10 @@ body .build_failed #projects .project .name {
 
     
     &.build_never_built    { .build_color(@never-built-color); }
-        
-    .name, .status, .builder_control, .rss, .project_status, .builder_status, .builder_control {
-      position: absolute;
-    }
+  
 
     .name {
-      font-size: 64px;
+      font-size: 58px;
       top: 10px;
       left: @paddingX;
       
@@ -256,12 +254,10 @@ body .build_failed #projects .project .name {
     }
 
     .status {
-      position: absolute;
-      bottom: 3px;
-      right: 2px;
+      float: right;
+      margin-right: 3px;
       width: 90px;
-      
-      
+      .rounded_corners(3px);
       background-color: @cruise-blue;
       color: white;
       text-shadow: 1px 1px 0px rgba(0,0,0, 0.4);
@@ -274,8 +270,8 @@ body .build_failed #projects .project .name {
     .status.never_built { background-color: darken(@never-built-color, 15%); }
 
     .builder_control { 
-      bottom: 30px;
-      right: 2px; 
+      float: right;
+      clear: both;
     }
           
     .rss { 
@@ -283,18 +279,19 @@ body .build_failed #projects .project .name {
       left: @paddingX;
     }
 
-    .builder_status  { 
-      bottom: 5px;
-      left: @paddingX + 30px;
+    .builder_status, .project_status { 
+      float: left;
+      margin-right: 8px;
+      padding: 3px 0;
       a {
         color: #fff;
         text-shadow: 1px 1px 0px rgba(0,0,0, 0.4);
       }
     }
-
-    .project_status  { 
-      bottom: 5px;
-      left: 240px;
+    
+    .builder_down {
+      font-weight: bold;
+      text-transform: uppercase;
     }
 
     .upper {
@@ -305,12 +302,14 @@ body .build_failed #projects .project .name {
     }
     
     .lower {
-      
+      .wrap {
+        position: static;
+      }
+      padding: 7px 0;
       position: absolute;
       bottom: -1px;
       left: 0;
       width: 100%;
-      height: 24px;
       -webkit-border-bottom-right-radius: 8px;
       -webkit-border-bottom-left-radius: 8px;
       -moz-border-radius-bottomright: 8px;
